@@ -1,14 +1,20 @@
 package com.ederson.financeiro.dto;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 public class TransacaoDTO {
 
     private String descricao;
     private BigDecimal valor;
-    private LocalDate data;
     private String tipo;
+
+    public TransacaoDTO() {}
+
+    public TransacaoDTO(String descricao, BigDecimal valor, String tipo){
+        this.descricao = descricao;
+        this.valor = valor;
+        this.tipo = tipo;
+    }
 
     public String getDescricao() {
         return descricao;
@@ -24,14 +30,6 @@ public class TransacaoDTO {
 
     public void setValor(BigDecimal valor) {
         this.valor = valor;
-    }
-
-    public LocalDate getData() {
-        return data;
-    }
-
-    public void setData(LocalDate data) {
-        this.data = data;
     }
 
     public String getTipo() {

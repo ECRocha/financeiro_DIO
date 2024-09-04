@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/transacoes")
+@RequestMapping("/api")
 public class TransacaoController {
     private final TransacaoService service;
 
@@ -18,13 +18,13 @@ public class TransacaoController {
         this.service = service;
     }
 
-    @PostMapping
+    @PostMapping("/transacao")
     public ResponseEntity<TransacaoDTO> criarTransacao(@RequestBody TransacaoDTO dto) {
         TransacaoDTO criada = service.salvarTransacao(dto);
         return ResponseEntity.ok(criada);
     }
 
-    @GetMapping
+    @GetMapping("/transacoes")
     public ResponseEntity<List<TransacaoDTO>> obterTransacoes() {
         return ResponseEntity.ok(service.obterTodasTransacoes());
     }
